@@ -3,8 +3,11 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3002;
 
-app.get("/", (req, res) => {
-  console.log("get all restaurants");
+app.get("/getRestaurant", (req, res) => {
+  res.status(202).json({
+    status: "success",
+    restaurant: "McDonalds",
+  });
 });
 
 app.listen(PORT, () => {
