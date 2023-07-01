@@ -1,13 +1,29 @@
 const express = require("express");
-require("dotenv").config();
 const app = express();
+require("dotenv").config();
 const PORT = process.env.PORT || 3002;
 
-app.get("/getRestaurant", (req, res) => {
-  res.status(202).json({
+// Middleware
+app.use(express.json());
+
+// Get all Restaurants.
+app.get("/api/v1/restaurants", (req, res) => {
+  res.status(200).json({
     status: "success",
-    restaurant: "McDonalds",
+    data: {
+      restaurant: ["McDonalds", "Burger King", "KFC"],
+    },
   });
+});
+
+// Get a Restaurant.
+app.get("/api/v1/restaurants/:id", (req, res) => {
+  console.log(req.params);
+});
+
+// Create a Restaurant.
+app.post("/api/v1/restaurants", (req, res) => {
+  console.log(req.body);
 });
 
 app.listen(PORT, () => {
