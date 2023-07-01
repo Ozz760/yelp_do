@@ -19,11 +19,45 @@ app.get("/api/v1/restaurants", (req, res) => {
 // Get a Restaurant.
 app.get("/api/v1/restaurants/:id", (req, res) => {
   console.log(req.params);
+  res.status(200).json({
+    status: "success",
+    data: {
+      restaurant: "McDonalds",
+    },
+  });
 });
 
 // Create a Restaurant.
 app.post("/api/v1/restaurants", (req, res) => {
   console.log(req.body);
+  res.status(201).json({
+    status: "success",
+    data: {
+      restaurant: "McDonalds",
+    },
+  });
+});
+
+// Update a Restaurant.
+app.put("/api/v1/restaurants/:id", (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body);
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      restaurant: "McDonalds",
+    },
+  });
+});
+
+// Delete a Restaurant.
+app.delete("/api/v1/restaurants/:id", (req, res) => {
+  console.log(req.params.id);
+
+  res.status(204).json({
+    status: "success",
+  });
 });
 
 app.listen(PORT, () => {
