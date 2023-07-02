@@ -1,13 +1,17 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
+const db = require("./db");
 const PORT = process.env.PORT || 3002;
 
 // Middleware
 app.use(express.json());
 
 // Get all Restaurants.
-app.get("/api/v1/restaurants", (req, res) => {
+app.get("/api/v1/restaurants", async (req, res) => {
+  const results = await db.query("SELECT * FROM restaurants");
+  console.log(results);
+
   res.status(200).json({
     status: "success",
     data: {
