@@ -3,24 +3,25 @@ import React from "react";
 const RestaurantList = () => {
   return (
     <div className="mt-10">
-      <table className="table-auto">
-        <thread>
+      <table className="table-auto text-2xl text-center border border-separate border-slate-500 rounded">
+        <thead className="">
           <tr>
-            <th className="">Restaurant</th>
-            <th className="">Location</th>
-            <th className="">Price Range</th>
-            <th className="">Ratings</th>
-            <th className="">Edit</th>
-            <th className="">Delete</th>
+            <th className="border border-slate-600">Restaurant</th>
+            <th className="border border-slate-600">Location</th>
+            <th className="border border-slate-600">Price Range</th>
+            <th className="border border-slate-600">Ratings</th>
+            <th className="border border-slate-600">Edit</th>
+            <th className="border border-slate-600">Delete</th>
           </tr>
-        </thread>
+        </thead>
         <tbody>
           <tr>
-            <td className="">McDonalds</td>
-            <td className="">San Francisco</td>
-            <td className="">$$</td>
-            <td className="">Update</td>
-            <td className="">Delete</td>
+            <td className="border border-slate-600">McDonalds</td>
+            <td className="border border-slate-600">San Francisco</td>
+            <td className="border border-slate-600">$$</td>
+            <td className="border border-slate-600">***</td>
+            <td className="border border-slate-600">Update</td>
+            <td className="border border-slate-600">Delete</td>
           </tr>
         </tbody>
       </table>

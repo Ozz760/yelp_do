@@ -6,7 +6,7 @@ import RestaurantDetailPage from "./routes/RestaurantDetailPage";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-slate-200 h-screen">
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
