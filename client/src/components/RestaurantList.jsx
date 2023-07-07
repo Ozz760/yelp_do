@@ -29,8 +29,9 @@ const RestaurantList = () => {
                   </th>
                 </tr>
               </thead>
+              {/* body of table */}
               <tbody>
-                <tr className="border dark:border-neutral-500">
+                <tr className="border dark:border-neutral-500 hover:bg-slate-100">
                   <td className="whitespace-nowrap  px-6 py-4 font-medium">
                     Wendy's Burger
                   </td>
@@ -44,10 +45,20 @@ const RestaurantList = () => {
                     ***
                   </td>
                   <td>
-                    <button>Update</button>
+                    <button
+                      type="button"
+                      className="inline-block rounded bg-yellow-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-yellow-600"
+                    >
+                      Update
+                    </button>
                   </td>
                   <td>
-                    <button>Delete</button>
+                    <button
+                      type="button"
+                      className="inline-block rounded bg-red-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-red-600"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
