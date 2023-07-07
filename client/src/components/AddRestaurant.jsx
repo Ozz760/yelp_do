@@ -4,7 +4,7 @@ const AddRestaurant = () => {
   return (
     <div className="mb-3">
       <form action="">
-        <div className="columns-4 gap-8 text-center mx-7">
+        <div className="columns-4 gap-8 text-center px-12">
           <div className="">
             <input
               type="text"
