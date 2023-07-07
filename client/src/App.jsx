@@ -6,7 +6,7 @@ import RestaurantDetailPage from "./routes/RestaurantDetailPage";
 
 const App = () => {
   return (
-    <div className="h-screen">
+    <div className="container mx-auto">
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />

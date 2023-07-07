@@ -2,9 +2,9 @@ import React from "react";
 
 const AddRestaurant = () => {
   return (
-    <div className="mb-3">
+    <div className="pb-2">
       <form action="">
-        <div className="columns-4 gap-8 text-center px-12">
+        <div className="columns-4 gap-8 text-center">
           <div className="">
             <input
               type="text"
@@ -30,7 +30,10 @@ const AddRestaurant = () => {
             </select>
           </div>
           <div>
-            <button className=" rounded border bg-blue-600 text-white w-full h-10">
+            <button
+              type="button"
+              className="rounded border bg-blue-600 text-white w-full h-10 hover:bg-blue-700"
+            >
               Add
             </button>
           </div>
