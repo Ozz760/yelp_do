@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 require("dotenv").config();
 const db = require("./db");
 const PORT = process.env.PORT || 3002;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Get all Restaurants.
 app.get("/api/v1/restaurants", async (req, res) => {
