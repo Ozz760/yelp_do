@@ -5,16 +5,16 @@ import { RestaurantsContext } from "../context/RestaurantsContext";
 const RestaurantList = (props) => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
+    try {
+      const fetchData = async () => {
         const response = await RestaurantFinder.get("/");
-        setRestaurants(response.data.data.restaurants);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
-  }, []);
+        setRestaurants(response.data.data.restaurant);
+      };
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [setRestaurants]);
 
   return (
     <div className="flex flex-col mt-12">
@@ -46,7 +46,7 @@ const RestaurantList = (props) => {
               </thead>
               {/* body of table */}
               <tbody>
-                {/* {restaurants.map((restaurant) => {
+                {restaurants.map((restaurant) => {
                   return (
                     <tr className="border dark:border-neutral-500 hover:bg-slate-100">
                       <td className="whitespace-nowrap  px-6 py-4 font-medium">
@@ -79,7 +79,7 @@ const RestaurantList = (props) => {
                       </td>
                     </tr>
                   );
-                })} */}
+                })}
               </tbody>
             </table>
           </div>
