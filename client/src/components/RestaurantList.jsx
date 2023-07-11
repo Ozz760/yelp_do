@@ -46,40 +46,44 @@ const RestaurantList = (props) => {
               </thead>
               {/* body of table */}
               <tbody>
-                {restaurants.map((restaurant) => {
-                  return (
-                    <tr className="border dark:border-neutral-500 hover:bg-slate-100">
-                      <td className="whitespace-nowrap  px-6 py-4 font-medium">
-                        {restaurant.name}
-                      </td>
-                      <td className="whitespace-nowrap  px-6 py-4 font-medium">
-                        {restaurant.location}
-                      </td>
-                      <td className="whitespace-nowrap  px-6 py-4 font-medium">
-                        {"$".repeat(restaurant.price_range)}
-                      </td>
-                      <td className="whitespace-nowrap  px-6 py-4 font-medium">
-                        reviews
-                      </td>
-                      <td>
-                        <button
-                          type="button"
-                          className="inline-block rounded bg-yellow-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-yellow-600"
-                        >
-                          Update
-                        </button>
-                      </td>
-                      <td>
-                        <button
-                          type="button"
-                          className="inline-block rounded bg-red-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-red-600"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {restaurants &&
+                  restaurants.map((restaurant) => {
+                    return (
+                      <tr
+                        key={restaurant.id}
+                        className="border dark:border-neutral-500 hover:bg-slate-100"
+                      >
+                        <td className="whitespace-nowrap  px-6 py-4 font-medium">
+                          {restaurant.name}
+                        </td>
+                        <td className="whitespace-nowrap  px-6 py-4 font-medium">
+                          {restaurant.location}
+                        </td>
+                        <td className="whitespace-nowrap  px-6 py-4 font-medium">
+                          {"$".repeat(restaurant.price_range)}
+                        </td>
+                        <td className="whitespace-nowrap  px-6 py-4 font-medium">
+                          reviews
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            className="inline-block rounded bg-yellow-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-yellow-600"
+                          >
+                            Update
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            type="button"
+                            className="inline-block rounded bg-red-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-red-600"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>
