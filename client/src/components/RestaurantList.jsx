@@ -16,6 +16,19 @@ const RestaurantList = (props) => {
     }
   }, [setRestaurants]);
 
+  const handleDelete = async (id) => {
+    try {
+      const resopnse = await RestaurantFinder.delete(`/${id}`);
+      setRestaurants(
+        restaurants.filter((restaurant) => {
+          return restaurant.id !== id;
+        })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex flex-col mt-12">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -75,6 +88,7 @@ const RestaurantList = (props) => {
                         </td>
                         <td>
                           <button
+                            onClick={() => handleDelete(restaurant.id)}
                             type="button"
                             className="inline-block rounded bg-red-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-red-600"
                           >
