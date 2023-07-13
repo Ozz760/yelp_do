@@ -1,9 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantList = (props) => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+  let navigate = useNavigate();
+
+  const handleUpdate = (id) => {
+    navigate(`/restaurants/${id}/update`);
+  };
+
   useEffect(() => {
     try {
       const fetchData = async () => {
@@ -16,9 +23,10 @@ const RestaurantList = (props) => {
     }
   }, [setRestaurants]);
 
+  // Function to handle the delete button.
   const handleDelete = async (id) => {
     try {
-      const resopnse = await RestaurantFinder.delete(`/${id}`);
+      const response = await RestaurantFinder.delete(`/${id}`);
       setRestaurants(
         restaurants.filter((restaurant) => {
           return restaurant.id !== id;
@@ -81,6 +89,7 @@ const RestaurantList = (props) => {
                         <td>
                           <button
                             type="button"
+                            onClick={() => handleUpdate(restaurant.id)}
                             className="inline-block rounded bg-yellow-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-yellow-600"
                           >
                             Update

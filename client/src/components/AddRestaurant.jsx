@@ -9,6 +9,7 @@ const AddRestaurant = () => {
 
   const { addRestaurants } = useContext(RestaurantsContext);
 
+  // Function to handle the submit button.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
