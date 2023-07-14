@@ -4,13 +4,18 @@ import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 
 const RestaurantList = (props) => {
+  // Destructure the restaurants and setRestaurants from the context.
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+
+  // Destructure the navigate function from the react-router-dom.
   let navigate = useNavigate();
 
+  // Function to handle the update button.
   const handleUpdate = (id) => {
     navigate(`/restaurants/${id}/update`);
   };
 
+  // Function to fetch the data from the database.
   useEffect(() => {
     try {
       const fetchData = async () => {

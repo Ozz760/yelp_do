@@ -7,6 +7,7 @@ const AddRestaurant = () => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("Price Range");
 
+  // Destructure the addRestaurants function from the context.
   const { addRestaurants } = useContext(RestaurantsContext);
 
   // Function to handle the submit button.
@@ -33,7 +34,7 @@ const AddRestaurant = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
-              className="rounded border-2 h-10 border-gray-300 w-full pl-2 placeholder:text-black"
+              className="rounded border-2 h-10 border-gray-300 w-full pl-2 placeholder:text-black focus:border-black focus:outline-none"
               placeholder="Name"
             />
           </div>
@@ -42,7 +43,7 @@ const AddRestaurant = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               type="text"
-              className="rounded border-2 h-10 border-gray-300 w-full pl-2 placeholder:text-black"
+              className="rounded border-2 h-10 border-gray-300 w-full pl-2 placeholder:text-black focus:border-black focus:outline-none"
               placeholder="Location"
             />
           </div>
@@ -50,7 +51,7 @@ const AddRestaurant = () => {
             <select
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
-              className="rounded border-2 border-gray-300 w-full h-10"
+              className="rounded border-2 border-gray-300 w-full h-10 focus:border-black focus:outline-none"
             >
               <option disabled>Price Range</option>
               <option value="1">$</option>
