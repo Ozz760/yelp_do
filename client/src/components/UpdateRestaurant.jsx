@@ -71,7 +71,7 @@ const UpdateRestaurant = (props) => {
           <label htmlFor="princeRange">Price Range</label>
           <select
             value={priceRange}
-            onClick={(e) => setPriceRange(e.target.value)}
+            onChange={(e) => setPriceRange(e.target.value)}
             className="rounded border-2 border-gray-300 w-full h-10 focus:border-black focus:outline-none"
           >
             <option disabled>Price Range</option>
