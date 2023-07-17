@@ -11,7 +11,8 @@ const RestaurantList = (props) => {
   let navigate = useNavigate();
 
   // Function to handle the update button.
-  const handleUpdate = (id) => {
+  const handleUpdate = (e, id) => {
+    e.stopPropagation();
     navigate(`/restaurants/${id}/update`);
   };
 
@@ -29,7 +30,8 @@ const RestaurantList = (props) => {
   }, [setRestaurants]);
 
   // Function to handle the delete button.
-  const handleDelete = async (id) => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
     try {
       const response = await RestaurantFinder.delete(`/${id}`);
       setRestaurants(
@@ -40,6 +42,11 @@ const RestaurantList = (props) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // Function to handle the restaurant selection.
+  const handleRestaurantSelect = (id) => {
+    navigate(`/restaurants/${id}`);
   };
 
   return (
@@ -76,6 +83,7 @@ const RestaurantList = (props) => {
                   restaurants.map((restaurant) => {
                     return (
                       <tr
+                        onClick={() => handleRestaurantSelect(restaurant.id)}
                         key={restaurant.id}
                         className="border dark:border-neutral-500 hover:bg-slate-100"
                       >
@@ -94,7 +102,7 @@ const RestaurantList = (props) => {
                         <td>
                           <button
                             type="button"
-                            onClick={() => handleUpdate(restaurant.id)}
+                            onClick={(e) => handleUpdate(e, restaurant.id)}
                             className="inline-block rounded bg-yellow-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-yellow-600"
                           >
                             Update
@@ -102,7 +110,7 @@ const RestaurantList = (props) => {
                         </td>
                         <td>
                           <button
-                            onClick={() => handleDelete(restaurant.id)}
+                            onClick={(e) => handleDelete(e, restaurant.id)}
                             type="button"
                             className="inline-block rounded bg-red-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 hover:bg-red-600"
                           >
