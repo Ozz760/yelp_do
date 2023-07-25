@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 import RestaurantFinder from "../apis/RestaurantFinder";
+import StarRating from "./StarRating";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -33,6 +34,9 @@ const DetailPage = () => {
       <h1 className="text-center font-medium text-5xl pt-9 pb-8">
         {selectedRestaurant && selectedRestaurant.name}
       </h1>
+      <div className="text-center text-yellow-400">
+        {selectedRestaurant && <StarRating rating={3.5} />}
+      </div>
     </div>
   );
 };
