@@ -30,7 +30,9 @@ const DetailPage = () => {
 
   return (
     <div>
-      <h1 className="">{selectedRestaurant && selectedRestaurant.name}</h1>
+      <h1 className="text-center font-medium text-5xl pt-9 pb-8">
+        {selectedRestaurant && selectedRestaurant.name}
+      </h1>
     </div>
   );
 };
