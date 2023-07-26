@@ -4,6 +4,7 @@ import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import StarRating from "./StarRating";
+import Reviews from "./Reviews";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -31,11 +32,14 @@ const DetailPage = () => {
 
   return (
     <div>
-      <h1 className="text-center font-medium text-5xl pt-9 pb-8">
-        {selectedRestaurant && selectedRestaurant.name}
-      </h1>
-      <div className="text-center text-yellow-400">
-        {selectedRestaurant && <StarRating rating={3.5} />}
+      <div>
+        {selectedRestaurant && (
+          <>
+            <div>
+              <Reviews />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
