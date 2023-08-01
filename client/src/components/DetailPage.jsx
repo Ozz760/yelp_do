@@ -27,6 +27,9 @@ const DetailPage = () => {
       <div>
         {selectedRestaurant && (
           <>
+            <div className="text-center font-medium text-5xl pt-9 pb-8">
+              {selectedRestaurant.restaurant.name}
+            </div>
             <div>
               <Reviews reviews={selectedRestaurant.reviews} />
             </div>
