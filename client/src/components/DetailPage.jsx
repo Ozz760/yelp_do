@@ -10,12 +10,10 @@ const DetailPage = () => {
   const { selectedRestaurant, setSelectedRestaurant } =
     useContext(RestaurantsContext);
 
-  // Function to handle the update button.
   useEffect(() => {
     try {
       const fetchData = async () => {
         const response = await RestaurantFinder.get(`/${id}`);
-        console.log(response);
         setSelectedRestaurant(response.data.data);
       };
       fetchData();

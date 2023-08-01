@@ -12,8 +12,8 @@ INSERT INTO reviews(
     review,
     rating
 ) VALUES (
-    5, 
+    13, 
     'John Doe',
     'Kinda Weird', 
     2
-) RETURNING *;
+);

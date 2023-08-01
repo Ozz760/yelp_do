@@ -7,7 +7,7 @@ const Reviews = ({ reviews }) => {
       {reviews &&
         reviews.map((review) => {
           return (
-            <div className="lg:w-1/4 w-full lg:pr-3">
+            <div key={review.id} className="lg:w-1/4 w-full lg:pr-3">
               <div className="bg-gray-200 rounded-xl p-6">
                 <div className="text-2xl font-bold mb-2">{review.name}</div>
                 <span>
