@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import RestaurantFinder from "../apis/RestaurantFinder";
-import { RestaurantsContext } from "../context/RestaurantsContext";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const AddReview = () => {
   const { id } = useParams();
@@ -17,7 +16,6 @@ const AddReview = () => {
         review: reviewText,
         rating: rating,
       });
-      console.log(response);
     } catch (err) {
       console.log(err);
     }

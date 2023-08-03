@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import { useNavigate } from "react-router-dom";
+import StarRating from "./StarRating";
 
 const RestaurantList = (props) => {
   // Destructure the restaurants and setRestaurants from the context.
@@ -47,6 +48,18 @@ const RestaurantList = (props) => {
   // Function to handle the restaurant selection.
   const handleRestaurantSelect = (id) => {
     navigate(`/restaurants/${id}`);
+  };
+
+  const renderRating = (restaurant) => {
+    if (!restaurant.count) {
+      return <span className="text-yellow-300">0 reviews</span>;
+    }
+    return (
+      <>
+        <StarRating rating={restaurant.average_rating} />
+        <span className="text-yellow-300 ml-1">({restaurant.count})</span>
+      </>
+    );
   };
 
   return (
@@ -97,7 +110,7 @@ const RestaurantList = (props) => {
                           {"$".repeat(restaurant.price_range)}
                         </td>
                         <td className="whitespace-nowrap  px-6 py-4 font-medium">
-                          reviews
+                          {renderRating(restaurant)}
                         </td>
                         <td>
                           <button
